@@ -1,3 +1,7 @@
+.contenedorPagina{
+    width: 90%;
+    margin: 0 auto;
+}
 header img{
     display: block;
 }
@@ -8,4 +12,16 @@ header div{
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+.containerPrincipal{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.containerCiudades{
+    width: 50%;
+}
+.containerPronostico{
+    width: 50%;
 }

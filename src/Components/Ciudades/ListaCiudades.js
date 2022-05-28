@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import {CiudadesContextData } from '../Contexts/CiudadesContextData'
+import {CiudadesContextData } from '../../Contexts/CiudadesContextData'
 import CardCiudad from './CardCiudad'
 
 export default function ListaCiudades() {
