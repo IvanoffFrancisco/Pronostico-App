@@ -14,9 +14,12 @@ export const CiudadesContextData=createContext()
   ]
 
 export const CiudadesContext = ({children}) => {
+    //agrega nueva ciudad
     const [newCiudad, setNewCiudad] = useState("")
+    //arreglo de ciudades
     const [ciudades, setCiudades] = useState(citys)
-    const [climaCiudad, setClimaCiudad] = useState("")
+    //selecciona la ciudad a mostrar clima
+    const [climaCiudad, setClimaCiudad] = useState(ciudades[0])
 
     //obtengo el dato del input
     const hendlerChangeCidudad=(e)=>{
