@@ -5,8 +5,7 @@ import FormCiudades from './FormCiudades'
 import ListaCiudades from './ListaCiudades'
 export default function Ciudades() {
     const {ciudades} = useContext(CiudadesContextData)
-
-
+    console.log("componente ciudad ", ciudades);
   return (
       
         <div>

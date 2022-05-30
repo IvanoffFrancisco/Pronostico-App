@@ -5,22 +5,25 @@ import { CiudadesContextData } from './CiudadesContextData';
  export const PronosticoContextData=createContext();
  
 export const PronosticoProvider = ({children}) => {
-    const {climaCiudad}=useContext(CiudadesContextData);
 
-    const [pronostico]=useFetchPronostico(climaCiudad);
+    const [loading, setLoading] = useState(true);
     const [diaActual, setDiaActual] = useState({});
     const [pronosticoDias, setPronosticoDias] = useState([]);
+    const {climaCiudad}=useContext(CiudadesContextData);
+    const [pronostico]=useFetchPronostico(climaCiudad,setLoading);
+
     useEffect(() => {
+
         if(!!pronostico){
-            setDiaActual(pronostico.diaActual);
-            setPronosticoDias(pronostico.dias);
+            setDiaActual(pronostico?.diaActual);
+            setPronosticoDias(pronostico?.dias);
         }
     }, [pronostico])
     
     
     
    return(
-        <PronosticoContextData.Provider value={{diaActual,pronosticoDias}}>
+        <PronosticoContextData.Provider value={{diaActual,pronosticoDias,loading,setLoading}}>
             {children}
         </PronosticoContextData.Provider>
 

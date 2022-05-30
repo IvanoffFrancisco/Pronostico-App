@@ -5,19 +5,13 @@ import CardPronosticoDia from './CardPronosticoDia';
 export default function PronosticoActual() {
     
     
-    const {diaActual}=useContext(PronosticoContextData);
-    console.log();
-    // maxtemp_c={}
+    const {diaActual,loading}=useContext(PronosticoContextData);
+    console.log("soy el loading en el dia actual", loading);
   return (
      <div>
          <h3>Pronostico Día Actual</h3>
          {
-             !!diaActual ? (
-                <CardPronosticoDia icon={diaActual?.day?.condition?.icon} date={diaActual?.date} maxtemp_c={diaActual?.day?.maxtemp_c} mintemp_c={diaActual?.day?.mintemp_c} />
-             ):(
-                 <div>Loading...</div>
-             )
-
+            <CardPronosticoDia icon={diaActual?.day?.condition.icon} date={diaActual?.date} maxtemp_c={diaActual?.day?.maxtemp_c} mintemp_c={diaActual?.day?.mintemp_c} />
          }
         
     </div>

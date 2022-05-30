@@ -3,8 +3,8 @@ import React from 'react';
 export default function CardPronosticoDia({date,maxtemp_c,mintemp_c,icon}) {
 
   return (
-    <div>
-        <div className="card mb-3" style={{maxWidth: "600px"}}>
+    <div className='row mt-2'>
+        <div className="card col-lg-12" >
             <div className="row g-0">
                 <div className="col-md-4">
                     <img src={icon} width="100%" className="img-fluid rounded-start" alt="..."/>
