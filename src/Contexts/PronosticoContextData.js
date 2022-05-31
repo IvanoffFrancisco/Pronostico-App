@@ -7,9 +7,10 @@ import { CiudadesContextData } from './CiudadesContextData';
 export const PronosticoProvider = ({children}) => {
 
     const [loading, setLoading] = useState(true);
+    const [locacion, setLocacion] = useState({})
     const [diaActual, setDiaActual] = useState({});
     const [pronosticoDias, setPronosticoDias] = useState([]);
-    const {climaCiudad}=useContext(CiudadesContextData);
+    const {climaCiudad}=useContext(CiudadesContextData); 
     const [pronostico]=useFetchPronostico(climaCiudad,setLoading);
 
     useEffect(() => {
@@ -17,13 +18,14 @@ export const PronosticoProvider = ({children}) => {
         if(!!pronostico){
             setDiaActual(pronostico?.diaActual);
             setPronosticoDias(pronostico?.dias);
+            setLocacion(pronostico?.location);
         }
     }, [pronostico])
     
     
     
    return(
-        <PronosticoContextData.Provider value={{diaActual,pronosticoDias,loading,setLoading}}>
+        <PronosticoContextData.Provider value={{diaActual,pronosticoDias,locacion,loading,setLoading}}>
             {children}
         </PronosticoContextData.Provider>
 

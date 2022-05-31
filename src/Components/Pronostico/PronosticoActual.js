@@ -1,19 +1,16 @@
-import React,{useContext} from 'react'
-import { PronosticoContextData } from '../../Contexts/PronosticoContextData'
+import React,{useContext} from 'react';
+import { PronosticoContextData } from '../../Contexts/PronosticoContextData';
 import CardPronosticoDia from './CardPronosticoDia';
 
 export default function PronosticoActual() {
     
-    
-    const {diaActual,loading}=useContext(PronosticoContextData);
-    console.log("soy el loading en el dia actual", loading);
+    const {diaActual,locacion}=useContext(PronosticoContextData);
   return (
      <div>
-         <h3>Pronostico Día Actual</h3>
+         <h3>{locacion.name}, {locacion.region}</h3>
          {
-            <CardPronosticoDia icon={diaActual?.day?.condition.icon} date={diaActual?.date} maxtemp_c={diaActual?.day?.maxtemp_c} mintemp_c={diaActual?.day?.mintemp_c} />
+            <CardPronosticoDia index={0} estado={diaActual?.day?.condition?.text} imagen={diaActual?.day?.condition.icon} fecha={diaActual?.date} temperatura={diaActual?.day?.maxtemp_c} temperaturaMinima={diaActual?.day?.mintemp_c} />
          }
-        
     </div>
   )
 }

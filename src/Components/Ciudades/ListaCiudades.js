@@ -5,8 +5,6 @@ import CardCiudad from './CardCiudad'
 export default function ListaCiudades() {
 
     const {ciudades} = useContext(CiudadesContextData);
-
-    console.log("componente Lista Ciudades ", ciudades);
     
     return (
     <div>

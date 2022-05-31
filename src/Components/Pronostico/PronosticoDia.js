@@ -5,7 +5,7 @@ import { PronosticoContextData } from '../../Contexts/PronosticoContextData';
 export default function PronosticoDia() {
 
   const [newArregloPronostico, setNewArregloPronostico] = useState([]);
-  const {pronosticoDias,loading}=useContext(PronosticoContextData);
+  const {pronosticoDias}=useContext(PronosticoContextData);
 
   const arreglarArreglo=(pronosticoDias)=>{
     const date=new Date();
@@ -25,11 +25,11 @@ export default function PronosticoDia() {
 
   return (
     <div>
-        <h3>Pronostico 5 días extendidos</h3>
+        <h3 style={{margin:"20px 0"}}>Días siguientes</h3>
         {
-            newArregloPronostico.map(dias=>{
+            newArregloPronostico.map((dias,index)=>{
               return(
-                <CardPronosticoDia icon={dias?.day.condition.icon} date={dias?.date} maxtemp_c={dias?.day.maxtemp_c} mintemp_c={dias?.day.mintemp_c}/>
+                <CardPronosticoDia key={index} index={index+1} imagen={dias?.day.condition.icon} fecha={dias?.date} temperatura={dias?.day.maxtemp_c} temperaturaMinima={dias?.day.mintemp_c}/>
               )
             })      
         }
