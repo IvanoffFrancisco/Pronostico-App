@@ -11,7 +11,7 @@ export default function CardPronosticoDia({fecha,temperatura,temperaturaMinima,i
         <div className="card col-lg-12" >
             <div className="row g-0">
                 <div className="col-md-4">
-                    <img src={imagen} width="100%" className="img-fluid rounded-start" alt="..."/>
+                    <img src={imagen} width="100%" style={{objectFit:"cover"}} className="img-fluid rounded-start" alt="..."/>
                 </div>
                 <div className="col-md-8 ">
                     <div className="card-body">
@@ -35,7 +35,7 @@ export default function CardPronosticoDia({fecha,temperatura,temperaturaMinima,i
                     </div>
                 </div>
                 <div>
-                    <button onClick={redireccionar} style={{display:"block",margin:"15px auto"}} className='btn btn-secondary'>Más detalles</button>
+                    <button onClick={redireccionar} style={{display:"block",margin:"10px auto"}} className='btn btn-secondary'>Más detalles</button>
                 </div>
             </div>
         </div>
