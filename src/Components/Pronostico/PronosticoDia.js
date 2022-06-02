@@ -8,16 +8,9 @@ export default function PronosticoDia() {
   const {pronosticoDias}=useContext(PronosticoContextData);
 
   const arreglarArreglo=(pronosticoDias)=>{
-    const date=new Date();
-    if(date.getMonth()<10){
-      const fechaActual=`${date.getFullYear()}-0${date.getMonth()+1}-${date.getDate()}`;
-      const newArregloDias=pronosticoDias.filter(dias => dias.date !== fechaActual);
-      setNewArregloPronostico(newArregloDias);
-    }else{
-      const fechaActual=`${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
-      const newArregloDias=pronosticoDias.filter(dias => dias.date !== fechaActual);
-      setNewArregloPronostico(newArregloDias);
-    }
+   
+      setNewArregloPronostico(pronosticoDias);
+    
   }
   useEffect(() => {
     arreglarArreglo(pronosticoDias);
@@ -29,7 +22,7 @@ export default function PronosticoDia() {
         {
             newArregloPronostico.map((dias,index)=>{
               return(
-                <CardPronosticoDia key={index} index={index+1} imagen={dias?.day.condition.icon} fecha={dias?.date} temperatura={dias?.day.maxtemp_c} temperaturaMinima={dias?.day.mintemp_c}/>
+                <CardPronosticoDia key={index} index={index} imagen={dias?.day.condition.icon} fecha={dias?.date} temperatura={dias?.day.maxtemp_c} temperaturaMinima={dias?.day.mintemp_c}/>
               )
             })      
         }

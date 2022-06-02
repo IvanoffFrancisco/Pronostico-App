@@ -9,7 +9,7 @@ export default function PronosticoActual() {
      <div>
          <h3>{locacion.name}, {locacion.region}</h3>
          {
-            <CardPronosticoDia index={0} estado={diaActual?.day?.condition?.text} imagen={diaActual?.day?.condition.icon} fecha={diaActual?.date} temperatura={diaActual?.day?.maxtemp_c} temperaturaMinima={diaActual?.day?.mintemp_c} />
+            <CardPronosticoDia index={0} actual={true} estado={diaActual?.condition?.text} imagen={diaActual?.condition?.icon} fecha={locacion?.localtime} temperatura={diaActual?.temp_c} />
          }
     </div>
   )

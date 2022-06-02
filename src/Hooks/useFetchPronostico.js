@@ -14,7 +14,7 @@ export const useFetchPronostico = (ciudad,setLoading) => {
         const data=await res.json();
         setPronostico({
           location:data.location,
-          diaActual:data.forecast.forecastday[0],
+          diaActual:data.current,
           dias:data.forecast.forecastday
         })
         setLoading(false);
